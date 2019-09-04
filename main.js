@@ -28,16 +28,25 @@ queue2.push('1');
 queue2.push('4', '6')
 let el2 = queue2.unshift();
 queue2.pop('fds');
-
 console.log(queue2);
 console.log(el2);
 
-/*var queue = [];         // []
-queue.push( "first" );  // queue === ["first"]
-queue.push( 10, 20 );   // queue === ["first", 10, 20]
-var el = queue.unshift(); // queue === [10, 20] && el === "first"
-queue.pop( 2 );        // queue === [10, 20, 2]
-el = queue.unshift();     // queue === [20, 2] && el === 10
-el = queue.unshift();     // queue === [2] && el === 20
-el = queue.unshift();     // queue === [] && el === 2
-el = queue.unshift();     // queue === [] && typeof el === "undefined"*/
+// create binary tree
+
+function Node(data) {
+    this.data = data;
+    this.parent = null;
+    this.children = [];
+}
+
+function tree(data) {
+    var node = new Node(data);
+    this._root = node;
+}
+
+var tree = new tree('CEO');
+
+// {data: 'CEO', parent: null, children: []}
+tree._root;
+
+console.log(tree)
