@@ -54,23 +54,17 @@ function Tree(data) {
 
 let tree = new Tree('CEO');
 tree._root;
-
 console.log(tree._root);
 
 Tree.prototype.traverseDF = function(callback) {
 
- 
     (function recurse(currentNode) {
-        // шаг 2
         for (let i = 0, length = currentNode.children.length; i < length; i++) {
-            // шаг 3
             recurse(currentNode.children[i]);
         }
 
-        // шаг 4
         callback(currentNode);
-
-        // шаг 1
+        
     })(this._root);
 
 };
