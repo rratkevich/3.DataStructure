@@ -33,20 +33,68 @@ console.log(el2);
 
 // create binary tree
 
+let binaryTree = {
+    value: 43,
+    left: null,
+    right: null
+};
+
+console.log(binaryTree);
+
 function Node(data) {
     this.data = data;
     this.parent = null;
     this.children = [];
-}
+};
 
-function tree(data) {
-    var node = new Node(data);
+function Tree(data) {
+    let node = new Node(data);
     this._root = node;
-}
+};
 
-var tree = new tree('CEO');
-
-// {data: 'CEO', parent: null, children: []}
+let tree = new Tree('CEO');
 tree._root;
 
-console.log(tree)
+console.log(tree._root);
+
+Tree.prototype.traverseDF = function(callback) {
+
+ 
+    (function recurse(currentNode) {
+        // шаг 2
+        for (let i = 0, length = currentNode.children.length; i < length; i++) {
+            // шаг 3
+            recurse(currentNode.children[i]);
+        }
+
+        // шаг 4
+        callback(currentNode);
+
+        // шаг 1
+    })(this._root);
+
+};
+
+let tree1 = new Tree('one');
+
+tree._root.children.push(new Node('two'));
+tree._root.children[0].parent = tree;
+
+tree._root.children.push(new Node('three'));
+tree._root.children[1].parent = tree;
+
+tree._root.children.push(new Node('four'));
+tree._root.children[2].parent = tree;
+
+tree._root.children[0].children.push(new Node('five'));
+tree._root.children[0].children[0].parent = tree._root.children[0];
+
+tree._root.children[0].children.push(new Node('six'));
+tree._root.children[0].children[1].parent = tree._root.children[0];
+
+tree._root.children[2].children.push(new Node('seven'));
+tree._root.children[2].children[0].parent = tree._root.children[2];
+
+tree.traverseDF(function(node) {
+    console.log(node.data)
+});
