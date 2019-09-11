@@ -1,15 +1,39 @@
-
 // create stack
-let stack = [];
-stack.push("1");
-stack.push("2", "3");
-let elem = stack.pop();
-stack.push( 'text');
-elem = stack.pop();
-elem = stack.pop();
-stack.push( 'sa');
-console.log(stack)
-console.log(elem)
+
+class Stack { 
+  
+     constructor() 
+    { 
+        this.items = []; 
+    } 
+  
+    push(element) 
+    { 
+        this.items.push(element); 
+    }  
+
+    pop() 
+    { 
+        if (this.items.length == 0) 
+            return "Underflow"; 
+        return this.items.pop(); 
+    }  
+
+} 
+
+let stack = new Stack(); 
+ 
+// returns Underflow 
+console.log(stack.pop());  
+
+// Adding element to the stack 
+stack.push(10); 
+stack.push(20); 
+stack.push(30); 
+
+console.log(stack);
+
+
 
 // create queue 1 
 let queue1 = [];
