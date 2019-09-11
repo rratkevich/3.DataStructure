@@ -21,9 +21,9 @@ class Stack {
 
 } 
 
+// реализация
 let stack = new Stack(); 
- 
-// returns Underflow 
+
 console.log(stack.pop());  
 
 // Adding element to the stack 
@@ -33,27 +33,30 @@ stack.push(30);
 
 console.log(stack);
 
+// create queue 
+class Queue 
+{ 
+    constructor() 
+    { 
+        this.items = []; 
+    } 
+                    
+    enqueue(element) 
+    {     
+        this.items.push(element); 
+    } 
+
+    dequeue() 
+    { 
+
+        if(this.isEmpty()) 
+            return "Underflow"; 
+        return this.items.shift(); 
+    }
+    
+} 
 
 
-// create queue 1 
-let queue1 = [];
-queue1.push('1');
-queue1.push('4', '6')
-let el1 = queue1.shift();
-queue1.push('fds');
-el1 = queue1.shift();
-el1 = queue1.shift();
-console.log(queue1);
-console.log(el1);
-
-// create queue 2
-let queue2 = [];
-queue2.push('1');
-queue2.push('4', '6')
-let el2 = queue2.unshift();
-queue2.pop('fds');
-console.log(queue2);
-console.log(el2);
 
 // create binary tree
 
